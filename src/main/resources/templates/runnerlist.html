@@ -1,0 +1,50 @@
+<! DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<title>List of Runners</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+	<body>
+		<div class="m-5 pb-5">
+		<h1> List of Runners</h1>
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+		<table class="table">
+  		<thead class="thead-dark">
+			<tr>
+		    	<th>Name</th>
+		    	<th>Sex</th>
+		    	<th>Kilometers</th>
+		    	<th>Hours</th>
+		    	<th>Minutes</th>
+		    	<th>Seconds</th>
+		    	<th>Min/Km</th>
+		    	<th sec:authorize="hasAuthority('ADMIN')"> </th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each = "runner : ${runners}">
+				<td th:text="${runner.firstName} + ' ' + ${runner.lastName}"></td>
+				<td th:text="${runner.sex.name}"></td>
+				<td th:text="${runner.km}"></td>
+				<td th:text="${runner.hour}"></td>
+				<td th:text="${runner.minute}"></td>
+				<td th:text="${runner.second}"></td>
+				<td th:text="${runner.minkm}"></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${runner.id})}" role="button" class="btn btn-sm btn-danger">Delete</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${runner.id})}" role="button" class="btn btn-sm btn-warning">Edit</a></td>				
+			</tr>
+			</tbody>
+		</table>
+		<a href="/add" role="button" class="btn btn-primary">Add New Runner</a>
+		</div>
+	</body>
+</html>
