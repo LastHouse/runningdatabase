@@ -28,10 +28,6 @@ INSERT INTO sex (name) VALUES ('Female'), ('Male');
 
 INSERT INTO user (username, password, role) VALUES
 
-("user", "$2a$10$MYtfqg7OmuC1Hw/5.zwPc.YON3DNBQ9OhW..tWuRWLn8F7GnXS9gS" , "USER"),
-("Teemu", "$2a$10$HUSS1BAM6TyfRa8k7mCQPuF2dmjWpqY9MgB3pVKhfJm/xrfxx2NIO", "ADMIN"),
-("Minna", "$2a$10$0TPbAIzsT4I6WxuYkirTL.HD2V69UlD.GyrB1zxmAdnz5FlmM2pDW", "ADMIN");
-
 INSERT INTO runner (firstname, Lastname, km, hour, minute, second, sexid) 
 VALUES
 
