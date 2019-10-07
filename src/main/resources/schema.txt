@@ -1,7 +1,3 @@
-DROP TABLE runner; 
-DROP TABLE sex;
-DROP TABLE user;
-
 CREATE TABLE user
 (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY
 ,username VARCHAR(50) NOT NULL,
@@ -38,9 +34,3 @@ INSERT INTO runner (firstname, lastname, km, hour, minute, second, sexid)
 VALUES ('John', 'Wayne', 15.2, 0, 45, 23, 2);
 INSERT INTO runner (firstname, lastname, km, hour, minute, second, sexid) 
 VALUES ('Igor', 'Popovitz', 21.1, 1, 35, 56, 2);
-
-
-SELECT * FROM runner;
-SELECT * FROM sex;
-SELECT * FROM user;
-
