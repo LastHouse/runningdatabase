@@ -1,7 +1,3 @@
-DROP TABLE runner; 
-DROP TABLE sex;
-DROP TABLE user;
-
 CREATE TABLE user
 (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY
 ,username VARCHAR(50) NOT NULL,
@@ -26,17 +22,15 @@ sexid BIGINT NOT NULL);
 
 INSERT INTO sex (name) VALUES ('Female'), ('Male');
 
-INSERT INTO user (username, password, role) VALUES
+INSERT INTO user (username, password, role) VALUES ('minna', '$2a$10$hGYGBUlOA.0hnn9PsqaZd.U0Sbm.sZhbfu8gsAQIOOTYy7mPQg2aK', 'ADMIN');
 
-INSERT INTO runner (firstname, Lastname, km, hour, minute, second, sexid) 
-VALUES
+INSERT INTO user (username, password, role) VALUES ('teemu', '$2a$10$nQfP5e0.J/5PFZ14Oen6fOU3MoN4OYQwkr8rE0ka4xUpKjerBW6lS', 'ADMIN');
 
-("Katy", "Kateson", 21.1, 1, 35, 56, 1),
-("John", "Wayne", 15.2, 0, 45, 23, 2),
-("Igor", "Popovitz", 21.1, 1, 35, 56, 2);
+INSERT INTO user (username, password, role) VALUES ('user', '$2a$10$rIAzhAM4w4a3dkcjaZbHS.22Im/Ww.2crBb1Lh2dVWLVnt8.HmWYa', 'USER');
 
-
-SELECT * FROM runner;
-SELECT * FROM sex;
-SELECT * FROM user;
-
+INSERT INTO runner (firstname, lastname, km, hour, minute, second, sexid) 
+VALUES ('Katy', 'Kateson', 21.1, 1, 35, 56, 1);
+INSERT INTO runner (firstname, lastname, km, hour, minute, second, sexid) 
+VALUES ('John', 'Wayne', 15.2, 0, 45, 23, 2);
+INSERT INTO runner (firstname, lastname, km, hour, minute, second, sexid) 
+VALUES ('Igor', 'Popovitz', 21.1, 1, 35, 56, 2);
