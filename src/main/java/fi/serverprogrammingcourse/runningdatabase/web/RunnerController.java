@@ -67,6 +67,6 @@ public class RunnerController {
 	public String editRunner(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("runner", rrepository.findById(id));
 		model.addAttribute("sexes", srepository.findAll());
-		return "editRunner";
+		return "editrunner";
 	}
 }
