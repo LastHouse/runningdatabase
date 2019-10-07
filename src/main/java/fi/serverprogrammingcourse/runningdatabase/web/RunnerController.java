@@ -24,9 +24,9 @@ public class RunnerController {
 	@Autowired
 	private SexRepository srepository;
 	
-    @RequestMapping(value="/login")
+    @RequestMapping(value="/index")
     public String login() {	
-        return "login";
+        return "index";
     }	
 	
 	@GetMapping(value= {"/runnerlist"})
