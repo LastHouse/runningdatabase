@@ -19,12 +19,12 @@ minute VARCHAR(2) NOT NULL,
 second VARCHAR(2) NOT NULL,
 sexid BIGINT);
 
-CREATE TABLE file (
+CREATE TABLE file_dummy (
 id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-file BLOB,
-filename VARCHAR(50) NOT NULL,
-mimetype VARCHAR(50) NOT NULL,
-base64str VARCHAR(50));
+file MEDIUMBLOB,
+filename VARCHAR(2500) NOT NULL,
+mimetype VARCHAR(2500) NOT NULL,
+base64str VARCHAR(2500));
 
 
 INSERT INTO sex (name) VALUES ('Female'), ('Male');

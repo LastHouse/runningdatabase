@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Sign in</title>
+    <title>Upload Files</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -13,9 +13,13 @@
 <div class="container">
 	<h1>Upload your file here</h1>
      <div class="col-md-4">
-		<form method="POST" action="/upload" enctype="multipart/form-data">
-		<input type="file" name="file" /><br/>
-		<input type="submit" value="Submit" />		
+     
+     	<form th:object="${file}" th:action="@{/upload}" action="#" method="post" enctype="multipart/form-data">
+     
+		
+		<input type="file" name="file" /><br/><br/>
+		
+		<button type="submit" class="btn btn-success" value="Submit">Submit</button>	
 		</form>
 	</div>
 </div>

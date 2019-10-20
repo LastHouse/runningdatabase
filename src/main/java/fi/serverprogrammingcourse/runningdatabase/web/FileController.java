@@ -16,9 +16,6 @@ import fi.serverprogrammingcourse.runningdatabase.domain.FileDummy;
 import fi.serverprogrammingcourse.runningdatabase.domain.FileRepository;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Optional;
 
 @Controller
