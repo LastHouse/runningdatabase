@@ -73,7 +73,7 @@ public class Runner {
 	@JoinColumn(name = "sexid")
 	private Sex sex;
 	
-	public Runner(String firstName, String lastName, double km, long hour, long minute, long second, String minkm, Sex sex) {
+	public Runner(String firstName, String lastName, double km, long hour, long minute, long second, Sex sex) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -81,7 +81,6 @@ public class Runner {
 		this.hour = hour;
 		this.minute = minute;
 		this.second = second;
-		this.minkm = minkm;
 		this.sex = sex;
 	}
 	public Sex getSex() {

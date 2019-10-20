@@ -17,14 +17,21 @@ km DOUBLE,
 hour VARCHAR(3) NOT NULL,
 minute VARCHAR(2) NOT NULL,
 second VARCHAR(2) NOT NULL,
-sexid BIGINT NOT NULL);
+sexid BIGINT);
+
+CREATE TABLE file (
+id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+file BLOB,
+filename VARCHAR(50) NOT NULL,
+mimetype VARCHAR(50) NOT NULL,
+base64str VARCHAR(50));
 
 
 INSERT INTO sex (name) VALUES ('Female'), ('Male');
 
 INSERT INTO user (username, password, role) VALUES ('minna', '$2a$10$hGYGBUlOA.0hnn9PsqaZd.U0Sbm.sZhbfu8gsAQIOOTYy7mPQg2aK', 'ADMIN');
 
-INSERT INTO user (username, password, role) VALUES ('teemu', '$2a$10$nQfP5e0.J/5PFZ14Oen6fOU3MoN4OYQwkr8rE0ka4xUpKjerBW6lS', 'ADMIN');
+INSERT INTO user (username, password, role) VALUES ('teemu', '$2a$10$Qpb4HvefFIx9cFb64IXRLu/3bP06kwOvIZAHyzSyHLZIRQ0S/dfRe', 'ADMIN');
 
 INSERT INTO user (username, password, role) VALUES ('user', '$2a$10$rIAzhAM4w4a3dkcjaZbHS.22Im/Ww.2crBb1Lh2dVWLVnt8.HmWYa', 'USER');
 
