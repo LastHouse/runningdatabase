@@ -1,6 +1,35 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
+	<style>
+		.jumbotron{
+		justify-content: center;
+		width: 300px;
+  		align-items: center;
+  		padding: 15px;
+  		margin: 15px;
+		}
+	</style>
+</head>
 <body>
- 	<h3 th:text="${msg}" ></h3>
+	<div class="row d-flex justify-content-center">
+		<div class="jumbotron text-center">
+	
+ 	  		<div class="col-sm">
+	
+			<h3 th:text="${msg}" ></h3><br>
+			<a class="btn btn-info" th:href="@{/upload}" role="button">Return</a>
+		
+	 		</div>
+   		</div>
+   </div>
 </body>
 </html>

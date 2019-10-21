@@ -22,9 +22,9 @@ sexid BIGINT);
 CREATE TABLE file_dummy (
 id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 file MEDIUMBLOB,
-filename VARCHAR(2500) NOT NULL,
-mimetype VARCHAR(2500) NOT NULL,
-base64str VARCHAR(2500));
+filename VARCHAR(100) NOT NULL,
+mimetype VARCHAR(100) NOT NULL,
+base64str VARCHAR(100));
 
 
 INSERT INTO sex (name) VALUES ('Female'), ('Male');

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Upload Files</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -13,13 +13,14 @@
 <div class="container">
 	<h1>Upload your file here</h1>
      <div class="col-md-4">
-     
+     	<br>
      	<form th:object="${file}" th:action="@{/upload}" action="#" method="post" enctype="multipart/form-data">
      
 		
 		<input type="file" name="file" /><br/><br/>
 		
-		<button type="submit" class="btn btn-success" value="Submit">Submit</button>	
+		<button type="submit" class="btn btn-success" value="Submit">Submit</button>
+		<a class="btn btn-info" th:href="@{/runnerlist}" role="button">Return</a>	
 		</form>
 	</div>
 </div>

@@ -12,8 +12,8 @@
 </head>
 	<body>
 		<div class="m-5 pb-5">
-		<h1> List of Runners</h1>
-		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+		<h1> List of Runners</h1><br>
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3><br>
 		<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
 		</form>
@@ -27,7 +27,8 @@
 		    	<th>Minutes</th>
 		    	<th>Seconds</th>
 		    	<th>Min/Km</th>
-		    	<th sec:authorize="hasAuthority('ADMIN')"> </th>
+		    	<th></th>
+		    	<th></th>
 			</tr>
 			</thead>
 			<tbody>
@@ -45,7 +46,7 @@
 			</tbody>
 		</table>
 		<a href="/add" role="button" class="btn btn-primary">Add New Runner</a>
-		<a href="/uploadfile" role="button" class="btn btn-primary">Add a File</a>
+		<a href="/uploadfile" role="button" class="btn btn-info">Add a File</a>
 		</div>
 	</body>
 </html>

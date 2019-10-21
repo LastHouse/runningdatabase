@@ -1,9 +1,9 @@
 package fi.serverprogrammingcourse.runningdatabase.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,14 +22,22 @@ import java.util.Optional;
 public class FileController {
 	
 	@Autowired
-	private FileRepository frepository; 
-	
-	@Value("${upload.path}")
-	private String uploadFolder;
+	private FileRepository frepository;
 	
 	@GetMapping("/uploadfile")
 	public String index() {
 		return "upload";
+	}
+	
+	@GetMapping("/upload")
+	public String index2() {
+		return "upload";
+	}
+	
+	@GetMapping("/filelist")
+	public String index3(Model model) {
+		model.addAttribute("files", frepository.findAll());  	
+    	return "filelist";
 	}
 
 	@PostMapping("/upload")
@@ -75,5 +83,12 @@ public class FileController {
 			}
 			
 			return ResponseEntity.status(404).body(null);
-		}    
+		}
+		
+		@PreAuthorize("hasAuthority('ADMIN')")
+		@GetMapping(value = "/deletefile/{id}")
+		public String deleteFile(@PathVariable("id") Long fileId, Model model) {
+			frepository.deleteById(fileId);
+			return "redirect:/filelist";
+		}
 }

@@ -1,22 +1,42 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<! DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title>Files</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>List of Files</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
-<body>
-	<h1>Files</h1>
-    <table>
-		<tr>
-		    <th>Name</th>
-		    <th>Type</th>
-		</tr>  
-    	<tr th:each = "file : ${files}">
+	<body>
+		<div class="m-5 pb-5">
+		<h1> Files</h1><br>
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3><br>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+		<table class="table">
+  		<thead class="thead-dark">
+			<tr>
+		    	<th>Name</th>
+		    	<th>Type</th>
+		    	<th>Download</th>
+		    	<th>Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each = "file : ${files}">
     		<td th:text="${file.fileName}"></td>
     		<td th:text="${file.mimeType}"></td>
- 				<td><a th:href="@{/file/{id}(id=${file.id})}">Download</a></td>    		
-    	</tr>
-     </table>
-	 <a href="/">Upload</a>    	
-</body>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/file/{id}(id=${file.id})}" role="button" class="btn btn-sm btn-warning">Download </a></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deletefile/{id}(id=${file.id})}" role="button" class="btn btn-sm btn-danger">Delete</a></td>		
+			</tr>
+			</tbody>
+		</table>
+		<a href="/uploadfile" role="button" class="btn btn-primary">Add a File</a>
+		<a class="btn btn-info" th:href="@{/runnerlist}" role="button">Return</a>
+		</div>
+	</body>
 </html>
