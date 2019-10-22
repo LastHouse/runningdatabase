@@ -18,7 +18,6 @@ public class Sex {
 	private Long sexid;
 	private String name;
 	
-	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sex")
 	private List<Runner> runners;
 
